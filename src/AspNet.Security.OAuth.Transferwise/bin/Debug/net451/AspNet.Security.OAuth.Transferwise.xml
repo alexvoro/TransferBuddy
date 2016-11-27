@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNet.Security.OAuth.Transferwise</name>
+    </assembly>
+    <members>
+        <member name="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults">
+            <summary>
+            Default values used by the Transferwise authentication middleware.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.AuthenticationScheme">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.AuthenticationOptions.AuthenticationScheme"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.DisplayName">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.RemoteAuthenticationOptions.DisplayName"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.Issuer">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.AuthenticationOptions.ClaimsIssuer"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.CallbackPath">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.RemoteAuthenticationOptions.CallbackPath"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.AuthorizationEndpoint">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.OAuthOptions.AuthorizationEndpoint"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationDefaults.TokenEndpoint">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.OAuthOptions.TokenEndpoint"/>.
+            </summary>
+        </member>
+        <member name="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper">
+            <summary>
+            Contains static methods that allow to extract user's information from a <see cref="T:Newtonsoft.Json.Linq.JObject"/>
+            instance retrieved from Transferwise after a successful authentication process.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetIdentifier(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the identifier corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetFullName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the full name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetGivenName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the given name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetFamilyName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the family name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetEmail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the email address corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHelper.GetLink(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the URL corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationOptions">
+            <summary>
+            Defines a set of options used by <see cref="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationHandler"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Builder.TransferwiseAuthenticationExtensions">
+            <summary>
+            Extension methods to add Transferwise authentication capabilities to an HTTP application pipeline.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Builder.TransferwiseAuthenticationExtensions.UseTransferwiseAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder,AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationOptions)">
+            <summary>
+            Adds the <see cref="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationMiddleware"/> middleware to the specified
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>, which enables Transferwise authentication capabilities.
+            </summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add the middleware to.</param>
+            <param name="options">A <see cref="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationOptions"/> that specifies options for the middleware.</param>        
+            <returns>A reference to this instance after the operation has completed.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Builder.TransferwiseAuthenticationExtensions.UseTransferwiseAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationOptions})">
+            <summary>
+            Adds the <see cref="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationMiddleware"/> middleware to the specified
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>, which enables Transferwise authentication capabilities.
+            </summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add the middleware to.</param>
+            <param name="configuration">An action delegate to configure the provided <see cref="T:AspNet.Security.OAuth.Transferwise.TransferwiseAuthenticationOptions"/>.</param>
+            <returns>A reference to this instance after the operation has completed.</returns>
+        </member>
+    </members>
+</doc>

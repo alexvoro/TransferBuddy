@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TransferBuddy.Service</name>
+    </assembly>
+    <members>
+        <member name="T:TransferBuddy.Service.Program">
+            <summary>
+            The program class which bootstrap the applicaiton.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Program.Main(System.String[])">
+            <summary>
+            The main entry point.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:TransferBuddy.Service.Startup">
+            <summary>
+            The startup class.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initialize a new instance of the <see cref="T:TransferBuddy.Service.Startup"/> class
+            </summary>
+            <param name="env">The environment.</param>
+        </member>
+        <member name="P:TransferBuddy.Service.Startup.Configuration">
+            <summary>
+            The configuration.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services to configure.</param>
+        </member>
+        <member name="M:TransferBuddy.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Configures the application.
+            </summary>
+            <param name="app">The application to configure.</param>
+            <param name="env">The environment to configure.</param>
+            <param name="loggerFactory">The log factory to configure.</param>
+        </member>
+        <member name="T:TransferBuddy.Service.Controllers.FacebookController">
+            <summary>
+            The FacebookController class.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.FacebookController.#ctor(Microsoft.Extensions.Logging.ILogger{TransferBuddy.Service.Controllers.FacebookController},TransferBuddy.Service.Services.MessageProcessorService)">
+            <summary>
+            Initializes a new instance of the FacebookController class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="processor">The message processor.</param>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.FacebookController.Validate">
+            <summary>
+            Validates the sender.
+            </summary>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.FacebookController.HandleMessage(Messenger.Client.Objects.MessengerObject)">
+            <summary>
+            Handles the message.
+            </summary>
+            <param name="obj">The message object.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Controllers.HomeController">
+            <summary>
+            The home controller.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.HomeController.Index">
+            <summary>
+            The index endpoint.
+            </summary>
+            <returns>A view.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.HomeController.Error">
+            <summary>
+            The error endpoint.
+            </summary>
+            <returns>A view.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.HomeController.Configure(System.String)">
+            <summary>
+            The configure endpoint.
+            </summary>
+            <returns>A view.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Controllers.TransfersController">
+            <summary>
+            The transfers controller.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Controllers.TransfersController.CreateTransfer">
+            <summary>
+            Executes the transfer.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.MessageProcessorService">
+            <summary>
+            The MessageProcessorService class.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.MessageProcessorService.#ctor(Microsoft.Extensions.Logging.ILogger{TransferBuddy.Service.Services.MessageProcessorService},Messenger.Client.Services.IMessengerMessageSender,TransferBuddy.Repositories.UserRepository,TransferBuddy.Service.Services.RedisService)">
+            <summary>
+            /// Initializes a new instance of the <see cref="T:TransferBuddy.Service.Services.Messenger.MessageHandler" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="messageSender">The message sender.</param>
+            <param name="userRepository">The user repository.</param>
+            <param name="redisService">The redis service.</param>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.MessageProcessorService.MessageSender">
+            <summary>
+            The sender.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.MessageProcessorService.Logger">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.MessageProcessorService.UserRepository">
+            <summary>
+            The user repository.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.MessageProcessorService.RedisService">
+            <summary>
+            The redis service.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.MessageProcessorService.ProcessMessageAsync(Messenger.Client.Objects.MessengerMessaging)">
+            <summary>
+            Processes a message;
+            </summary>
+            <param name="messageContainer"></param>
+            <returns>True if the message was processed, otherwise false.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.RedisService">
+            <summary>
+            Redis service.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.RedisService.#ctor(Microsoft.Extensions.Logging.ILogger{TransferBuddy.Service.Services.RedisService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TransferBuddy.Service.Services.RedisService"/> class.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.RedisService.FindOrCreateAsync``1(System.String,``0)">
+            <summary>
+            Stores a key value pair.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.RedisService.FindAsync``1(System.String)">
+            <summary>
+            Finds a value for a specific key.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.RedisService.DeleteAsync``1(System.String)">
+            <summary>
+            Deletes a value for a specific key.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.ConversationContext">
+            <summary>
+            The conversation context.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.ConversationContext.Id">
+            <summary>
+            Id property.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.ConversationContext.Text">
+            <summary>
+            Random property.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.HelpMessageHandler">
+            <summary>
+            Handles the help message.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.HelpMessageHandler.#ctor(TransferBuddy.Service.Services.MessageProcessorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TransferBuddy.Service.Services.Messenger.HelpMessageHandler" /> class.
+            </summary>
+            <param name="processor">The message processor.</param>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.HelpMessageHandler.HandleMessageAsync(Messenger.Client.Objects.MessengerMessaging)">
+            <summary>
+            Handles the message.
+            </summary>
+            <param name="messageContainer">The message container.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.IMessageHandler">
+            <summary>
+            The contact endpoint.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.IMessageHandler.HandleMessageAsync(Messenger.Client.Objects.MessengerMessaging)">
+            <summary>
+            Handles the message.
+            </summary>
+            <param name="messageContainer">The message container to process.</param>
+            <returns>True the message was processed otherwise false.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.MessageHandler">
+            <summary>
+            MessengerHandler base class.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.#ctor(TransferBuddy.Service.Services.MessageProcessorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TransferBuddy.Service.Services.Messenger.MessageHandler" /> class.
+            </summary>
+            <param name="processor">The message processor.</param>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.MessageHandler.Processor">
+            <summary>
+            The message processor.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.SimulateTypingAsync(Messenger.Client.Objects.MessengerUser,System.Int32)">
+            <summary>
+            Simulates typing.
+            </summary>
+            <param name="recipient">The messenger user.</param>
+            <param name="duration">Duration.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.SendTextAsync(Messenger.Client.Objects.MessengerUser,System.String,System.Int32)">
+            <summary>
+            Sends text to the user.
+            </summary>
+            <param name="recipient">The messenger user.</param>
+            <param name="text">The text.</param>
+            <param name="duration">The typing duration.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.SendTextAsync(Messenger.Client.Objects.MessengerUser,System.String)">
+            <summary>
+            Sends text to the user.
+            </summary>
+            <param name="recipient">The messenger user.</param>
+            <param name="text">The text.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.SendPictureAsync(Messenger.Client.Objects.MessengerUser,System.String)">
+            <summary>
+            Sends a picture to the user.
+            </summary>
+            <param name="recipient">The messenger user.</param>
+            <param name="url">The picture url.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.SendTextWithButtonsAsync(Messenger.Client.Objects.MessengerUser,System.String,System.Collections.Generic.IEnumerable{TransferBuddy.Service.Services.Messenger.MessengerButtonBase})">
+            <summary>
+            Seds a button to the user.
+            </summary>
+            <param name="recipient">The messenger user.</param>
+            <param name="text">The text.</param>
+            <param name="buttons">The buttons.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessageHandler.GetUserAsync(Messenger.Client.Objects.MessengerUser)">
+            <summary>
+            Gets the user.
+            </summary>
+            <param name="sender">The messenger user.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.MessengerButtonBase">
+            <summary>
+            Represents a base button.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessengerButtonBase.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see ref="MessengerButtonBase" /> class.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.MessengerButtonBase.Type">
+            <summary>
+            The button type.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.MessengerButtonBase.Title">
+            <summary>
+            The button title.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.MessengerChatButton">
+            <summary>
+            Represents a chat button.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessengerChatButton.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see ref="MessengerChatButton" /> class.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.MessengerChatButton.Payload">
+            <summary>
+            The payload.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.MessengerLinkButton">
+            <summary>
+            Represents a link button.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.MessengerLinkButton.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see ref="MessengerLinkButton" /> class.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Service.Services.Messenger.MessengerLinkButton.Url">
+            <summary>
+            The link URL.
+            </summary>
+        </member>
+        <member name="T:TransferBuddy.Service.Services.Messenger.TextMessageHandler">
+            <summary>
+            Handles a text message.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.TextMessageHandler.#ctor(TransferBuddy.Service.Services.MessageProcessorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TransferBuddy.Service.Services.Messenger.TextMessageHandler" /> class.
+            </summary>
+            <param name="processor">The message processor.</param>
+        </member>
+        <member name="M:TransferBuddy.Service.Services.Messenger.TextMessageHandler.HandleMessageAsync(Messenger.Client.Objects.MessengerMessaging)">
+            <summary>
+            Handles the message.
+            </summary>
+            <param name="messageContainer">The message container.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="T:TransferBuddy.Repositories.MongoRepository">
+            <summary>
+            Base class for mongo db repositories.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Repositories.MongoRepository.Client">
+            <summary>
+            The db client.
+            </summary>
+        </member>
+        <member name="P:TransferBuddy.Repositories.MongoRepository.Db">
+            <summary>
+            The db.
+            </summary>
+        </member>
+        <member name="M:TransferBuddy.Repositories.MongoRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TransferBuddy.Repositories.UserRepository"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>
